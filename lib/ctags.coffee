@@ -83,6 +83,12 @@ langdef =
     {re: /(,|^|\*\/)[ \t]*get[ \t]+([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*\([ \t]*\)[ \t]*\{/, id: 'get %2', kind: 'Function'}
     {re: /(,|^|\*\/)[ \t]*set[ \t]+([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*\([ \t]*([A-Za-z_$][A-Za-z0-9_$]+)?[ \t]*\)[ \t]*\{/, id: 'set %2', kind: 'Function'}
   ]
+  Python: [
+    {re: /def (.*)\(/, id: '%1', kind: 'def'}
+    {re: /class (.*)\(/, id: '%1', kind: 'class'}
+    {re: /^import (.*)\(/, id: '%1', kind: 'import'}
+    {re: /^from (.*) import\(/, id: '%1', kind: 'from'}
+  ]
   haxe: [
     {re: /^package[ \t]+([A-Za-z0-9_.]+)/, id: '%1', kind: 'Package'}
     {re: /^[ \t]*[(@:macro|private|public|static|override|inline|dynamic)( \t)]*function[ \t]+([A-Za-z0-9_]+)/, id: '%1', kind: 'Function'}
@@ -145,6 +151,7 @@ langmap =
   '.capnp': langdef.Capnp
   '.pod': langdef.perl
   '.js': langdef.JavaScript
+  '.py': langdef.Python
   '.hx': langdef.haxe
   '.ex.exs': langdef.Elixir
   '.nim': langdef.Nim

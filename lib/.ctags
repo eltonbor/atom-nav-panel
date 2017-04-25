@@ -107,6 +107,13 @@
 --regex-JavaScript=/(,|^|\*\/)[ \t]*get[ \t]+([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*\([ \t]*\)[ \t]*\{/get \2/f,Function/
 --regex-JavaScript=/(,|^|\*\/)[ \t]*set[ \t]+([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*\([ \t]*([A-Za-z_$][A-Za-z0-9_$]+)?[ \t]*\)[ \t]*\{/set \2/f,Function/
 
+--langdef=Python
+--langmap=Python:.py
+--regex-Python=/def(.*)\(/\1/d,def/
+--regex-Python=/class(.*)\(/\1/c,class/
+--regex-Python=/^import (.*)\(/\1/i,import/
+--regex-Python=/^from (.*) import\(/\1/f,from/
+
 --langdef=haxe
 --langmap=haxe:.hx
 --regex-haxe=/^package[ \t]+([A-Za-z0-9_.]+)/\1/p,package/
